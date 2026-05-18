@@ -1,0 +1,91 @@
+<head>
+<meta name="robots" content="noindex,nofollow">
+
+
+
+
+
+<style>
+body{background-color: black;color:white}
+h1{color:hotpink;font-size:40px;margin-bottom:10px;}
+a{color:white;}
+p{margin: 5px 0;}
+
+
+
+
+.button{background-color:hotpink;color:white;padding:10px;border-radius:10px;text-decoration:none;}
+.button:hover{background-color:deeppink;}
+.container{display:flex;flex-wrap:wrap;gap:20px;}
+.card{background-color:#222;padding:20px;width:200px;border-radius:20px;text-align:center;margin-top:5px;margin-bottom:10px;}
+.card:hover{transform:translateY(-5px);box-shadow:0px 0px 20px hotpink;}
+.time{background-color:rgb(13, 210, 13);color:white;width:100%;box-sizing:border-box;border-radius:10px;font-weight:bold;}
+.warning{background-color:rgb(255, 64, 0);color:white;width:100%;box-sizing:border-box;border-radius:10px;font-weight:bold;border:1px solid white;}
+.percent{background-color:#444;height:20px;border-radius:10px;position:relative;overflow:hidden;margin:10px 0;}
+.bar{background-color:hotpink;height:100%;}
+.percent span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:12px;font-weight:bold;color:white;}
+.shareimg{width:300px;display:block;border-radius:10px;}
+.shareimg:hover{transform:translateY(-5px);box-shadow:0px 0px 20px white;}
+.count{}
+
+;</style>
+</head>
+
+<body>
+<h1>今日のgiveawayまとめ</h1>
+
+<div class="topbar"><a href="https://twitter.com/intent/tweet?text=今日のgiveawayまとめ！"target="_blank"rel="noopener noreferrer"><img class="shareimg"src="ximage.jpg"></a></div>
+
+<p>締切が近い順に表示されます</p>
+<p>※ブラウザ(chromeやsafari)で閲覧してください※</p>
+<a class="discript" href="https://note.com/j_naya_team/n/nf86302082e26"target="_blank"rel="noopener noreferrer">・giveawayのやり方</a>
+<br>
+<a class="discript" href="https://lit.link/iznayateam1125"target="_blank"rel="noopener noreferrer">・izna suppourt team JP</a>
+<br>
+<a class="discript" href="https://x.com/ponty__saurus"target="_blank"rel="noopener noreferrer">・サイト管理人</a>
+<br>
+<a class="discript" href="https://twitter.com/intent/tweet?text=@ponty__saurus%0A不具合日時：%0A内容:%0A(画像があれば添付してください）"target="_blank"rel="noopener noreferrer">・不具合の報告はこちら</a>
+<br>
+<br>
+<div class="container" id="cards"></div>
+
+
+
+
+
+
+<script>fetch("https://docs.google.com/spreadsheets/d/1VYwH1F6EC7T2jPprf-FNaLclORNMMMyfGmE-XF4Mvg4/gviz/tq?tqx=out:json")
+  .then(response => response.text())
+  .then(data => {const json = JSON.parse(data.substr(47).slice(0,-2));
+let html = "";
+json.table.rows.sort(function(a,b){return new Date(a.c[2].v)-new Date(b.c[2].v);});
+json.table.rows.forEach(function(row){
+const deadline =new Date(String(row.c[2].v));
+const month =deadline.getMonth()+1;
+const day =deadline.getDate();
+const hour =deadline.getHours();
+const minute =String(deadline.getMinutes()).padStart(2,"0");
+const now = new Date();
+const diff =deadline - now;
+const hours =Math.floor(diff / 1000 / 60 / 60);
+const minutes =Math.floor(diff / 1000 / 60) % 60;
+const percent =Math.floor(row.c[5].v/row.c[4].v*100);
+const id = row.c[6].v;const today =new Date().toLocaleDateString();const storageKey =id + "_" + today;let count =localStorage.getItem(storageKey) || 0;
+
+let warningClass = "";if(hours <= 11){warningClass = "warning";}
+
+html += `
+ <div class="card">
+  <p class="count">[本日 ${count}回 参加済み]</p>
+ <div class="time ${warningClass}">あと ${hours}時間 ${minutes}分</div>
+ <div class="percent"><div class="bar"style="width:${percent}%;"></div><span>${percent}%</span></div>
+ <p>[${row.c[0].v}]</p>
+ <p>報酬：${row.c[1].v}💙</p>
+<p>${month}/${day} ${hour}:${minute} まで</p>
+<p>${row.c[5].v}/${row.c[4].v}</p>
+ <a class="button"href="${row.c[3].v}"target="_blank"rel="noopener noreferrer"onclick="addCount('${storageKey}')">参加する</a>
+</div> `;});
+document.getElementById("cards").innerHTML = html;});
+function addCount(key){let count =localStorage.getItem(key) || 0;count++;localStorage.setItem(key, count);}
+</script>
+</body>
