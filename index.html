@@ -61,6 +61,7 @@ p{margin: 5px 0;}
 let html = "";
 json.table.rows.sort(function(a,b){return new Date(a.c[2].v)-new Date(b.c[2].v);});
 json.table.rows.forEach(function(row){
+const status=row.c[7].v;if(status==="archive"){return;}
 const deadline =new Date(String(row.c[2].v));
 const month =deadline.getMonth()+1;
 const day =deadline.getDate();
