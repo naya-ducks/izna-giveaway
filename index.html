@@ -72,7 +72,7 @@ const diff =deadline - now;
 const hours =Math.floor(diff / 1000 / 60 / 60);
 const minutes =Math.floor(diff / 1000 / 60) % 60;
 const percent =Math.floor(row.c[5].v/row.c[4].v*100);
-const id = row.c[6].v;const today =new Date().toLocaleDateString();const storageKey =id + "_" + today;let count =localStorage.getItem(storageKey) || 0;
+const id = row.c[6].v;const today =new Date().toLocaleDateString();const storageKey =id;let count =localStorage.getItem(storageKey) || 0;
 
 let warningClass = "";if(hours <= 11){warningClass = "warning";}
 
