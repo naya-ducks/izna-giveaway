@@ -78,7 +78,7 @@ let warningClass = "";if(hours <= 11){warningClass = "warning";}
 
 html += `
  <div class="card">
-  <p class="count">[本日 ${count}回 参加済み]</p>
+  <p class="count">[${count}回 参加済み]</p>
  <div class="time ${warningClass}">あと ${hours}時間 ${minutes}分</div>
  <div class="percent"><div class="bar"style="width:${percent}%;"></div><span>${percent}%</span></div>
  <p>[${row.c[0].v}]</p>
