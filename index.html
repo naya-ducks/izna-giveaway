@@ -86,6 +86,6 @@ html += `
  <a class="button"href="${row.c[3].v}"target="_blank"rel="noopener noreferrer"onclick="addCount('${storageKey}')">参加する</a>
 </div> `;});
 document.getElementById("cards").innerHTML = html;});
-function addCount(key){let count =localStorage.getItem(key) || 0;count++;localStorage.setItem(key, count);}
+function addCount(key){let count =localStorage.getItem(key) || 0;count++;localStorage.setItem(key, count);location.reload()}
 </script>
 </body>
