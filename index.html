@@ -87,7 +87,7 @@ html += `
 <p>${row.c[5].v}/${row.c[4].v}</p>
  <a class="button"href="${row.c[3].v}"target="_blank"rel="noopener noreferrer"onclick="addCount('${storageKey}')">参加する</a>
 </div> `;});
-document.getElementById("cards").innerHTML = html+`<div class="guidebar"><a href="guide.html"><img class="guideimg" src="guide.jpg"></a></div>`;});
+document.getElementById("cards").innerHTML = html+`<div class="guidebar"><a href="guide.html"><img class="guideimg" src="guide.jpg"></a></div>`;;});
 function addCount(key){let count =localStorage.getItem(key) || 0;count++;localStorage.setItem(key, count);setTimeout(function(){location.reload();},500);}
 </script>
 </body>
