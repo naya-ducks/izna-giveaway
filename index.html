@@ -91,7 +91,7 @@ html += `
 <p>${month}/${day} ${hour}:${minute} まで</p>
 <p>${row.c[5].v}/${row.c[4].v}</p>
  <a class="button"href="${row.c[3].v}"target="_blank"rel="noopener noreferrer"onclick="addCount('${storageKey}')">参加する</a>
-</div> `;;if((index + 1) % 3 === 0){html += `<div class="card pointcard"><p class="pointicon">💰</p><br><p><b>ポイ活もやろう</b></p><p>毎日コツコツ<br>貯められる！</p><br><br><a class="button" href="point.html">みる</a></div>`;}})
+</div> `;;if((index + 1) % 4 === 0){html += `<div class="card pointcard"><p class="pointicon">💰</p><br><p><b>ポイ活もやろう</b></p><p>毎日コツコツ<br>貯められる！</p><br><br><a class="button" href="point.html">みる</a></div>`;}})
 document.getElementById("cards").innerHTML = html+ `<div class="card pointcard"><p class="pointicon">💰</p><br><p><b>ポイ活もやろう</b></p><p>毎日コツコツ<br>貯められる！</p><br><br><a class="button" href="point.html">みる</a></div><div class="guidebar"><a href="guide.html"><img class="guideimg" src="guide.jpg"></a></div>`;});
 function addCount(key){let count =localStorage.getItem(key) || 0;count++;localStorage.setItem(key, count);setTimeout(function(){location.reload();},500);}
 </script>
