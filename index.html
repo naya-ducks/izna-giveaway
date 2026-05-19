@@ -97,8 +97,8 @@ html += `
  <a class="button"href="${row.c[3].v}"target="_blank"rel="noopener noreferrer"onclick="addCount('${storageKey}')">参加する</a>
 </div> `;;if((index + 1) %4 === 0){html += `<div class="card pointcard"><p>[ポイ活]<br>🎀投票ガイド🎀</b></p><br><p class=><p class="pointlist">・毎日コツコツ<br>
 ・無料で貯められる<br>・iznaに1位を贈ろう！</p><br><a class="pointbutton" href="point.html">はじめる</a></div>`;}})
-document.getElementById("cards").innerHTML = html+ `<div class="card pointcard"><p class="pointicon">💰</p><br><p><b>ポイ活もやろう</b></p><p>毎日コツコツ<br>貯められる！</p><br><p>ポイントを集めて
-投票に参加しよう</p><br><a class="button" href="point.html">みる</a></div><div class="guidebar"><a href="guide.html"><img class="guideimg" src="guide.jpg"></a></div>`;});
+document.getElementById("cards").innerHTML = html+`<div class="card pointcard"><p>[ポイ活]<br>🎀投票ガイド🎀</b></p><br><p class=><p class="pointlist">・毎日コツコツ<br>
+・無料で貯められる<br>・iznaに1位を贈ろう！</p><br><a class="pointbutton" href="point.html">はじめる</a></div><div class="guidebar"><a href="guide.html"><img class="guideimg" src="guide.jpg"></a></div>`;});
 function addCount(key){let count =localStorage.getItem(key) || 0;count++;localStorage.setItem(key, count);setTimeout(function(){location.reload();},500);}
 </script>
 </body>
