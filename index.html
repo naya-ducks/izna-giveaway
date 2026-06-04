@@ -2,8 +2,7 @@
 <meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>izna giveawayまとめ</title.</title>
-
+<title>izna giveawayまとめ</title>
 
 
 <style>
@@ -28,8 +27,12 @@ p{margin: 5px 0;}
 .percent span{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);font-size:12px;font-weight:bold;color:white;}
 .shareimg{width:300px;display:block;border-radius:10px;}
 .shareimg:hover{transform:translateY(-5px);box-shadow:0px 0px 20px white;}
+
+
 .count{}
 .guideimg{width:95vw;max-width:500px;border-radius:10px;}
+.collabimg{width:300px;display:block;border-radius:10px;margin-top:10px;}
+
 .pointcard{border:1px solid gold;box-shadow:0 0 10px gold;}.pointcard:hover{transform:translateY(-5px);box-shadow:0px 0px 20px gold;}
 .pointicon{font-size:30px;}
 .guides{font-size:11px;}
@@ -46,7 +49,8 @@ p{margin: 5px 0;}
 <body>
 <h1>今日のgiveawayまとめ</h1>
 
-<div class="topbar"><a href="https://twitter.com/intent/tweet?text=今日のgiveawayまとめ！%0AこのリンクからGiveawayに参加してiznaにトロフィーを贈ろう！%0A https://naya-ducks.github.io/izna-giveaway/"target="_blank"rel="noopener noreferrer"><img class="shareimg"src="ximage.jpg"></a></div>
+<div class="topbar"><a href="https://twitter.com/intent/tweet?text=今日のgiveawayまとめ！%0AこのリンクからGiveawayに参加してiznaにトロフィーを贈ろう！%0A https://naya-ducks.github.io/izna-giveaway/"target="_blank"rel="noopener noreferrer"><img class="shareimg"src="ximage.jpg"></a>
+<a href="collabvote.html"><img class="collabimg" src="collab.jpg"></a></div>
 
 <p>締切が近い順に表示されます</p>
 <p>※ブラウザ(chromeやsafari)で閲覧してください※</p>
@@ -105,7 +109,10 @@ if(json.table.rows.length < 5){html += `<div class="card pointcard"><p class="gu
 
 document.getElementById("cards").innerHTML = html+ `
 
-<div class="guidebar"><a href="guide.html"><img class="guideimg" src="guide.jpg"></a></div>`;});
+<div class="guidebar"><a href="guide.html"><img class="guideimg" src="guide.jpg"></a>
+</div>`;});
+
+
 function addCount(key){
    fetch(
     "https://docs.google.com/forms/d/e/1FAIpQLSeC1NHvTNSLCpLaSonxHwTNsa7-fX5hvnfjN4hBIgU8l_eEEw/formResponse",
