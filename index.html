@@ -75,6 +75,9 @@ p{margin: 5px 0;}
   .then(response => response.text())
   .then(data => {const json = JSON.parse(data.substr(47).slice(0,-2));
 let html = "";
+
+console.log(json.table.rows.length);
+
 json.table.rows.sort(function(a,b){return new Date(a.c[2].v)-new Date(b.c[2].v);});
 json.table.rows.forEach(function(row,index){
 const status=row.c[7].v;if(status==="archive"){return;}
