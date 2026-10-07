@@ -108,7 +108,7 @@ html += `
 </div> 
 `;;if((index + 1) %4 === 0){html += `<div class="card pointcard"><p class="guidetitle">[ポイ活]<br>🎀投票ガイド🎀</b></p><p class=><p class="pointlist">・毎日コツコツ<br>
 ・無料で貯められる<br>・iznaに1位を贈ろう！</p><br><a class="pointbutton" href="point.html"target=blank>はじめる</a></div>`;}})
-if(json.table.rows.length < 5){html += `<div class="card pointcard"><p class="guidetitle">[ポイ活]<br>🎀投票ガイド🎀</p><p class="pointlist">・毎日コツコツ<br>・無料で貯められる<br>・iznaに1位を贈ろう！</p><br><a class="pointbutton" href="point.html">はじめる</a></div>`;}
+if(json.table.rows.filter(row => row.c[7]?.v !== "archive").length < 5){html += `<div class="card pointcard"><p class="guidetitle">[ポイ活]<br>🎀投票ガイド🎀</p><p class="pointlist">・毎日コツコツ<br>・無料で貯められる<br>・iznaに1位を贈ろう！</p><br><a class="pointbutton" href="point.html">はじめる</a></div>`;}
 
 document.getElementById("cards").innerHTML = html+ `
 
